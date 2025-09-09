@@ -7,6 +7,12 @@ def convert():
     km_output = mile_input * 1.61 # Conversion
     output_string.set(km_output) # Update widget
 
+def switch():
+    if window.style.theme.name == "darkly":
+        window.style.theme_use("flatly")
+    else:
+        window.style.theme_use("darkly")
+
 # Create main window where to put everything on
 # window = tk.Tk()
 window = ttk.Window(themename = "darkly")
@@ -20,18 +26,18 @@ window.geometry(f"{w}x{h}") # width x height in pixels
 title_label = ttk.Label(master = window,
                         text = "Miles to Kilometers",
                         font = "Calibri 24 bold")
-title_label.pack() # Place the label on the specified window
+title_label.pack(pady = 10) # Place the label on the specified window
 
 # Create the input field (which is a widget too)
 input_frame = ttk.Frame(master = window)
 entry_int = tk.IntVar()
 entry = ttk.Entry(master = input_frame,
                   textvariable = entry_int)
-button = ttk.Button(master = input_frame,
+button_convert = ttk.Button(master = input_frame,
                     text = "Convert",
                     command = convert)
 entry.pack(side = "left", padx = 10) # The side argument is needed to have entry and button next each other (padx is the gap between the two)
-button.pack(side = "left")
+button_convert.pack(side = "left")
 input_frame.pack(pady = 10) # Firstly place entry and button inside the frame and then place the frame into the window
 
 # Create the output (which is again a widget)
@@ -41,6 +47,15 @@ output_label = ttk.Label(master = window,
                          font = "Calibri 24",
                          textvariable = output_string)
 output_label.pack(pady = 5)
+
+# Choose theme
+button_theme = ttk.Button(master = window,
+                          text = "Switch theme",
+                          command = switch)
+button_theme.pack(side = "bottom",
+                  anchor = "se",
+                  padx = 10,
+                  pady = 10)
 
 # Run
 window.mainloop()
