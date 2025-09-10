@@ -23,39 +23,45 @@ window.geometry(f"{w}x{h}") # width x height in pixels
 
 # Create the first widget (namely the GUI's title)
 # Widgets (text, buttons, checkboxes, menus, frames, etc.) are the building blocks of tkinter
-title_label = ttk.Label(master = window,
-                        text = "Miles to Kilometers",
-                        font = "Calibri 24 bold")
+title_label = ttk.Label(
+    master = window,
+    text = "Miles to Kilometers",
+    font = "Calibri 24 bold")
 title_label.pack(pady = 10) # Place the label on the specified window
 
 # Create the input field (which is a widget too)
 input_frame = ttk.Frame(master = window)
 entry_int = tk.IntVar()
-entry = ttk.Entry(master = input_frame,
-                  textvariable = entry_int)
-button_convert = ttk.Button(master = input_frame,
-                    text = "Convert",
-                    command = convert)
+entry = ttk.Entry(
+    master = input_frame,
+    textvariable = entry_int)
+button_convert = ttk.Button(
+    master = input_frame,
+    text = "Convert",
+    command = convert)
 entry.pack(side = "left", padx = 10) # The side argument is needed to have entry and button next each other (padx is the gap between the two)
 button_convert.pack(side = "left")
 input_frame.pack(pady = 10) # Firstly place entry and button inside the frame and then place the frame into the window
 
 # Create the output (which is again a widget)
 output_string = tk.StringVar()
-output_label = ttk.Label(master = window,
-                         text = "Output",
-                         font = "Calibri 24",
-                         textvariable = output_string)
+output_label = ttk.Label(
+    master = window,
+    text = "Output",
+    font = "Calibri 24",
+    textvariable = output_string)
 output_label.pack(pady = 5)
 
 # Choose theme
-button_theme = ttk.Button(master = window,
-                          text = "Switch theme",
-                          command = switch)
-button_theme.pack(side = "bottom",
-                  anchor = "se",
-                  padx = 10,
-                  pady = 10)
+button_theme = ttk.Button(
+    master = window,
+    text = "Switch theme",
+    command = switch)
+button_theme.pack(
+    side = "bottom",
+    anchor = "se",
+    padx = 10,
+    pady = 10)
 
 # Run
 window.mainloop()

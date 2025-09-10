@@ -19,7 +19,9 @@ window.title("Window and Widgets")
 window.geometry("800x700")
 
 # Create widgets (there are both tk and ttk widgets)
-label_1 = ttk.Label(master = window, text = "This is a test")
+label_1 = ttk.Label(
+    master = window,
+    text = "This is a test")
 label_1.pack(pady = 10)
 
 textbox = tk.Text(master = window)
@@ -29,17 +31,32 @@ entry = ttk.Entry(master = window)
 entry.pack(pady = 10)
 
 frame_1 = ttk.Frame(master = window)
-label_2 = ttk.Label(master = frame_1, text = "My label")
-label_2.pack(side = "left", padx = 10)
+label_2 = ttk.Label(
+    master = frame_1,
+    text = "My label")
+label_2.pack(
+    side = "left",
+    padx = 10)
 # button1 = ttk.Button(master = frame, text = "Press me", command = button1_func).pack(side = "left")
-button_1 = ttk.Button(master = frame_1, text = "Press me", command = lambda: print("Hello."))
+button_1 = ttk.Button(
+    master = frame_1,
+    text = "Press me",
+    command = lambda: print("Hello."))
 button_1.pack(side = "left") # It is possible to pass also a lambda function
 frame_1.pack(pady = 10)
 
 frame_2 = ttk.Frame(master = window)
-button_2 = ttk.Button(master = frame_2, text = "Change label", command = change_label)
-button_2.pack(side = "left", padx = 10)
-button_3 = ttk.Button(master = frame_2, text = "Reset label", command = reset_label)
+button_2 = ttk.Button(
+    master = frame_2,
+    text = "Change label",
+    command = change_label)
+button_2.pack(
+    side = "left",
+    padx = 10)
+button_3 = ttk.Button(
+    master = frame_2,
+    text = "Reset label",
+    command = reset_label)
 button_3.pack(side = "left")
 frame_2.pack(pady = 10)
 
